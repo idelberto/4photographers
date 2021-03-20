@@ -1,4 +1,4 @@
-package br.com.spdata.photographers;
+package br.com.idelberto.photographers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

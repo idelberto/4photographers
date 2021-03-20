@@ -1,4 +1,4 @@
-package br.com.spdata.photographers.entities;
+package br.com.idelberto.photographers.entities;
 
 import java.io.Serializable;
 
@@ -27,5 +27,6 @@ public class Photographer implements Serializable {
 	@NotNull
 	@Column(length = 100)
 	private String name;
+	
 	
 }

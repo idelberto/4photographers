@@ -1,4 +1,4 @@
-package br.com.spdata.photographers;
+package br.com.idelberto.photographers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

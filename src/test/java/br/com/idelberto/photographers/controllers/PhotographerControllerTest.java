@@ -44,6 +44,8 @@ public class PhotographerControllerTest
 	@MockBean
 	PhotographerService service;
 	
+	
+	
 	@Test
 	@DisplayName("Deve cria um fotografo com sucesso")
 	public void createPhotographerTest() throws Exception

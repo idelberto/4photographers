@@ -1,0 +1,32 @@
+package br.com.idelberto.photographers.service;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import br.com.idelberto.photographers.entities.Photographer;
+
+@ActiveProfiles("test")
+@ExtendWith(SpringExtension.class)
+public class PhotographerServiceTeste 
+{
+	
+	PhotographerService service;
+		
+	@Test
+	@DisplayName("Deve salvar photographer")
+	public void savePhotographerTest()
+	{
+		
+		Photographer photographer = Photographer
+				.builder()
+				.id(1)
+				.name("Idelberto")
+				.build();
+		
+		
+	}
+	
+}

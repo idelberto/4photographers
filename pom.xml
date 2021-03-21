@@ -14,7 +14,7 @@
 	<version>0.0.1</version>
 	<name>4photographers</name>
 	<description>Gestão Fotografica</description>
-	
+
 	<properties>
 
 		<java.version>11</java.version>
@@ -99,16 +99,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
-	
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -122,7 +122,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			
+
 			<!-- Liquibase -->
 			<plugin>
 				<groupId>org.liquibase</groupId>
@@ -130,17 +130,17 @@
 				<version>${liquibase.maven.plugin.version}</version>
 				<configuration>
 					<!-- Precisamos usar o arquivo de properties pq o hibernate extensio 
-						 usa o Name Strategy da tabela ofical do JPA, ou seja, igual ao nome da classe 
-						 para usar o do spring precisamos de uma configuracao a mais no referencesUrl, 
-						 porem se passada no pom.xml da erro de conversão de xml então foi colocada 
-						 no liquibase.properties -->
+						usa o Name Strategy da tabela ofical do JPA, ou seja, igual ao nome da classe 
+						para usar o do spring precisamos de uma configuracao a mais no referencesUrl, 
+						porem se passada no pom.xml da erro de conversão de xml então foi colocada 
+						no liquibase.properties -->
 					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
-					
+
 					<!-- Fora do arquivo liquibase.properties pq precisa ser interpolado 
-						 pela variavel do maven -->
+						pela variavel do maven -->
 					<diffChangeLogFile>src/main/resources/db/diff/${timestamp}-diff-changelog.xml</diffChangeLogFile>
 				</configuration>
-				
+
 				<dependencies>
 					<dependency>
 						<groupId>org.liquibase.ext</groupId>
@@ -168,8 +168,8 @@
 
 				</dependencies>
 			</plugin>
-			
-		</plugins>		
+
+		</plugins>
 	</build>
 
 </project>

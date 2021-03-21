@@ -24,8 +24,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.idelberto.photographers.dtos.PhotographerDtoRequest;
-import br.com.idelberto.photographers.dtos.PhotographerDtoResponse;
+import br.com.idelberto.photographers.dtos.photographers.PhotographerDtoRequest;
+import br.com.idelberto.photographers.dtos.photographers.PhotographerDtoResponse;
 import br.com.idelberto.photographers.entities.Photographer;
 import br.com.idelberto.photographers.service.PhotographerService;
 

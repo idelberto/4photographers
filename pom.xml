@@ -71,12 +71,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
@@ -130,14 +124,14 @@
 				<version>${liquibase.maven.plugin.version}</version>
 				<configuration>
 					<!-- Precisamos usar o arquivo de properties pq o hibernate extensio 
-						usa o Name Strategy da tabela ofical do JPA, ou seja, igual ao nome da classe 
-						para usar o do spring precisamos de uma configuracao a mais no referencesUrl, 
-						porem se passada no pom.xml da erro de conversão de xml então foi colocada 
-						no liquibase.properties -->
+						 usa o Name Strategy da tabela ofical do JPA, ou seja, igual ao nome da classe 
+						 para usar o do spring precisamos de uma configuracao a mais no referencesUrl, 
+						 porem se passada no pom.xml da erro de conversão de xml então foi colocada 
+						 no liquibase.properties -->
 					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
 
 					<!-- Fora do arquivo liquibase.properties pq precisa ser interpolado 
-						pela variavel do maven -->
+						 pela variavel do maven -->
 					<diffChangeLogFile>src/main/resources/db/diff/${timestamp}-diff-changelog.xml</diffChangeLogFile>
 				</configuration>
 

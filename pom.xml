@@ -14,13 +14,14 @@
 	<version>0.0.1</version>
 	<name>4photographers</name>
 	<description>Gestão Fotografica</description>
+	
 	<properties>
-		
+
 		<java.version>11</java.version>
-		
+
 		<!-- Spring -->
 		<spring.version>2.4.4</spring.version>
-		
+
 		<spring.beans.version>5.2.6.RELEASE</spring.beans.version>
 
 		<!-- Javax -->
@@ -32,17 +33,19 @@
 		<!-- Liquibase -->
 		<liquibase.maven.plugin.version>3.9.0</liquibase.maven.plugin.version>
 		<liquibase.hibernate5.version>3.8</liquibase.hibernate5.version>
-		
+
 		<timestamp>${maven.build.timestamp}</timestamp>
 		<maven.build.timestamp.format>yyyy-MM-dd-HH-mm-ss</maven.build.timestamp.format>
-		
+
 	</properties>
-	
+
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
@@ -54,16 +57,19 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -76,9 +82,33 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -92,6 +122,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			
 			<!-- Liquibase -->
 			<plugin>
 				<groupId>org.liquibase</groupId>
@@ -104,10 +135,12 @@
 						 porem se passada no pom.xml da erro de conversão de xml então foi colocada 
 						 no liquibase.properties -->
 					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
+					
 					<!-- Fora do arquivo liquibase.properties pq precisa ser interpolado 
 						 pela variavel do maven -->
 					<diffChangeLogFile>src/main/resources/db/diff/${timestamp}-diff-changelog.xml</diffChangeLogFile>
 				</configuration>
+				
 				<dependencies>
 					<dependency>
 						<groupId>org.liquibase.ext</groupId>
@@ -132,111 +165,11 @@
 						<artifactId>validation-api</artifactId>
 						<version>${javax.validation.version}</version>
 					</dependency>
+
 				</dependencies>
 			</plugin>
-
-			<!-- Tests -->
-			<plugin>
-				<!-- for unit tests -->
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<argLine>${surefire.jacoco.args}</argLine>
-					<excludes>
-						<exclude>**/*IT.java</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<!--for integrations tests -->
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<configuration>
-					<argLine>${failsafe.jacoco.args}</argLine>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.5</version>
-				<executions>
-					<execution>
-						<id>before-unit-test-execution</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-						<configuration>
-							<destFile>${project.build.directory}/jacoco-unit-tests.exec</destFile>
-							<propertyName>surefire.jacoco.args</propertyName>
-						</configuration>
-					</execution>
-					<execution>
-						<id>after-unit-test-execution</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-						<configuration>
-							<dataFile>${project.build.directory}/jacoco-unit-tests.exec</dataFile>
-							<outputDirectory>${project.reporting.outputDirectory}/jacoco-unit-test-coverage-report</outputDirectory>
-						</configuration>
-					</execution>
-					<execution>
-						<id>before-integration-test-execution</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-						<configuration>
-							<destFile>${project.build.directory}/jacoco-integration-tests.exec</destFile>
-							<propertyName>failsafe.jacoco.args</propertyName>
-						</configuration>
-					</execution>
-					<execution>
-						<id>after-integration-test-execution</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-						<configuration>
-							<dataFile>${project.build.directory}/jacoco-integration-tests.exec</dataFile>
-							<outputDirectory>${project.reporting.outputDirectory}/jacoco-integration-test-coverage-report</outputDirectory>
-						</configuration>
-					</execution>
-					<execution>
-						<id>merge-unit-and-integration</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>merge</goal>
-						</goals>
-						<configuration>
-							<fileSets>
-								<fileSet>
-									<directory>${project.build.directory}/</directory>
-									<includes>
-										<include>*.exec</include>
-									</includes>
-								</fileSet>
-							</fileSets>
-							<destFile>${project.build.directory}/merged.exec</destFile>
-						</configuration>
-					</execution>
-					<execution>
-						<id>create-merged-report</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-						<configuration>
-							<dataFile>${project.build.directory}/merged.exec</dataFile>
-							<outputDirectory>${project.reporting.outputDirectory}/jacoco-merged-test-coverage-report</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
+			
+		</plugins>		
 	</build>
 
 </project>

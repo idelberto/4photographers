@@ -10,10 +10,14 @@ import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Photographer implements Serializable {
@@ -27,6 +31,6 @@ public class Photographer implements Serializable {
 	@NotNull
 	@Column(length = 100)
 	private String name;
-	
+		
 	
 }

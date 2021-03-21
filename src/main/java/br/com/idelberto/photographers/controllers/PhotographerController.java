@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.idelberto.photographers.dtos.PhotographerDtoRequest;
-import br.com.idelberto.photographers.dtos.PhotographerDtoResponse;
+import br.com.idelberto.photographers.dtos.photographers.PhotographerDtoRequest;
+import br.com.idelberto.photographers.dtos.photographers.PhotographerDtoResponse;
 import br.com.idelberto.photographers.service.PhotographerService;
 
 @RestController

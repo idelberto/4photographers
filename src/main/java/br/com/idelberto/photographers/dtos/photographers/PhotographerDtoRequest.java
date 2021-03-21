@@ -1,4 +1,4 @@
-package br.com.idelberto.photographers.dtos;
+package br.com.idelberto.photographers.dtos.photographers;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

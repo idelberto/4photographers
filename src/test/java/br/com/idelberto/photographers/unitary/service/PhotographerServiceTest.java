@@ -1,4 +1,4 @@
-package br.com.idelberto.photographers.service;
+package br.com.idelberto.photographers.unitary.service;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,6 +7,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import br.com.idelberto.photographers.entities.Photographer;
+import br.com.idelberto.photographers.service.PhotographerService;
 
 @ActiveProfiles("test")
 @ExtendWith(SpringExtension.class)

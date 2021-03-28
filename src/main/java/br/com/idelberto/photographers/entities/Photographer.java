@@ -1,10 +1,14 @@
 package br.com.idelberto.photographers.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.sun.istack.NotNull;
 
@@ -18,7 +22,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Photographer implements Serializable {
+public class Photographer implements Serializable 
+{
 
 	private static final long serialVersionUID = 1L;
 
@@ -29,6 +34,6 @@ public class Photographer implements Serializable {
 	@NotNull
 	@Column(length = 100)
 	private String name;
-		
+	
 	
 }

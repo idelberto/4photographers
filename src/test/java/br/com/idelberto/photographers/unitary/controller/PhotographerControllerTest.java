@@ -1,4 +1,4 @@
-package br.com.idelberto.photographers.controllers;
+package br.com.idelberto.photographers.unitary.controller;
 
 
 
@@ -26,7 +26,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.idelberto.photographers.dtos.photographers.PhotographerDtoRequest;
 import br.com.idelberto.photographers.dtos.photographers.PhotographerDtoResponse;
-import br.com.idelberto.photographers.entities.Photographer;
 import br.com.idelberto.photographers.service.PhotographerService;
 
 @WebMvcTest
@@ -43,33 +42,28 @@ public class PhotographerControllerTest
 	
 	@MockBean
 	PhotographerService service;
-	
-	
-	
+		
 	@Test
-	@DisplayName("Deve cria um fotografo com sucesso")
+	@DisplayName("Should create Photographer")
 	public void createPhotographerTest() throws Exception
-	{
+	{	
 		
-		
-		//Dto Request Mock.
+		//Data Transfer Object Request Mock.
 		PhotographerDtoRequest dtoPhotographer = PhotographerDtoRequest
 				.builder()
-				.name("Idelberto")
+				.name("Andrew")
 				.build();
-		
 		
 		//Instance of class Photographer.
 		PhotographerDtoResponse savePhotographer = PhotographerDtoResponse
 				.builder()
-				.id(0L)
-				.name("Idelberto")
+				.id(1L)
+				.name("Andrew")
 				.build();
 			
 		BDDMockito
 			.given(service.save(Mockito.any(PhotographerDtoRequest.class)))
-			.willReturn(savePhotographer);
-		
+			.willReturn(savePhotographer);	
 		
 		String json = new ObjectMapper().writeValueAsString(dtoPhotographer);
 		
@@ -88,7 +82,7 @@ public class PhotographerControllerTest
 	}
 	
 	@Test
-	@DisplayName("Deve lançar um erro de validação")
+	@DisplayName("Should create a validation error")
 	public void createInvalidPhotographerTest()
 	{
 		

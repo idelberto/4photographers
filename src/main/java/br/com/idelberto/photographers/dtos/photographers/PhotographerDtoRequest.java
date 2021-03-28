@@ -11,7 +11,8 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PhotographerDtoRequest {
+public class PhotographerDtoRequest 
+{
 
 	private String name;
 

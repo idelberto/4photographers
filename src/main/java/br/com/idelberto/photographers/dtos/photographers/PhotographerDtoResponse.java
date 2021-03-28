@@ -11,10 +11,10 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PhotographerDtoResponse {
+public class PhotographerDtoResponse 
+{
 	
 	private Long id;
-	
 	private String name;
 
 }

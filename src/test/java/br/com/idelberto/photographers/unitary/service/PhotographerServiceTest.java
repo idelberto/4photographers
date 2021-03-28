@@ -10,7 +10,7 @@ import br.com.idelberto.photographers.entities.Photographer;
 
 @ActiveProfiles("test")
 @ExtendWith(SpringExtension.class)
-public class PhotographerServiceTeste 
+public class PhotographerServiceTest
 {
 	
 	PhotographerService service;
@@ -26,6 +26,7 @@ public class PhotographerServiceTeste
 				.name("Idelberto")
 				.build();
 		
+		//Photographer save PhotographerService.save();
 		
 	}
 	

@@ -1,9 +1,21 @@
 package br.com.idelberto.photographers.service;
 
+import org.springframework.stereotype.Service;
+
 import br.com.idelberto.photographers.dtos.photographers.PhotographerDtoRequest;
 import br.com.idelberto.photographers.dtos.photographers.PhotographerDtoResponse;
 
-public interface PhotographerService 
+@Service
+public class PhotographerService 
 {
-	PhotographerDtoResponse save(PhotographerDtoRequest dtoRequestPhotographer);
+	public PhotographerDtoResponse save(PhotographerDtoRequest dtoRequestPhotographer) 
+	{
+		PhotographerDtoResponse photographerDtoResponse = PhotographerDtoResponse
+				.builder()
+				.id(1L)
+				.name(dtoRequestPhotographer.getName())
+				.build();
+		 
+		 return photographerDtoResponse;
+	}
 }
